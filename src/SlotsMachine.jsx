@@ -16,7 +16,7 @@ const PAYOUTS = {
 const ROWS = 3;
 const COLS = 5;
 
-const SlotMachine = ({ winProbability = 0.6 }) => {
+const SlotMachine = ({ balance, setBalance, winProbability = 0.6 }) => {
   const generateReelStrip = useCallback(() => {
     return Array(30)
       .fill()
@@ -31,7 +31,6 @@ const SlotMachine = ({ winProbability = 0.6 }) => {
 
   const [reels, setReels] = useState(initialReels);
   const [spinning, setSpinning] = useState(false);
-  const [balance, setBalance] = useState(20670000);
   const [bet, setBet] = useState(10000);
   const [win, setWin] = useState(0);
   const [winningRows, setWinningRows] = useState([]);

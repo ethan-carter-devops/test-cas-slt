@@ -1,22 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import SlotsGame from "./SlotsGame";
+import Wallet from "./Wallet";
 import "./App.css";
-import SlotMachine from "./SlotsMachine";
-import WinProbabilitySetter from "./WinProbabilitySetter";
 
 function App() {
-  const [winProbability, setWinProbability] = useState(0.6);
+  const [balance, setBalance] = useState(20670000);
   return (
-    <div className="App">
-      <header className="bg-blue-500 text-white p-4">
-        <h1 className="text-2xl">Hello Test Customer</h1>
-      </header>
-      <main className="p-4">
-        <SlotMachine winProbability={winProbability} />
-        <WinProbabilitySetter
-          winProbability={winProbability}
-          setWinProbability={setWinProbability}
-        />
-      </main>
+    <div className="app-container">
+      <div className="slots-container">
+        <SlotsGame balance={balance} setBalance={setBalance} />
+      </div>
+      <div className="wallet-container">
+        <Wallet balance={balance} />
+      </div>
     </div>
   );
 }
